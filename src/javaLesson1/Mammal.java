@@ -1,6 +1,6 @@
 package javaLesson1;
 
-public class Mammal {
+public class Mammal extends Animal {
 	private int numLegs;
 	private String habitat;
 	

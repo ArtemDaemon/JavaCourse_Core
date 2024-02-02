@@ -1,6 +1,6 @@
 package javaLesson1;
 
-public class Bird {
+public class Bird extends Animal {
 	private float wingSpan;
 	private String migratoryStatus;
 	

@@ -1,6 +1,6 @@
 package javaLesson1;
 
-public class Artiodactyl {
+public class Artiodactyl extends Mammal {
 	private float hornLength;
 	private String diet;
 	
