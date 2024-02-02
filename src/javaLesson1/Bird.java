@@ -6,6 +6,19 @@ public class Bird extends Animal {
 	private static final float MIN_WING_SPAN = 1;
 	private static final float MAX_WING_SPAN = 100;
 	
+	public Bird() {
+		super();
+		this.wingSpan = 0;
+		this.migratoryStatus = "Unknown migratory status";
+	}
+	
+	public Bird(String name, int age, float wingSpan, String migratoryStatus) {
+		super(name, age);
+		this.wingSpan = wingSpan;
+		this.migratoryStatus = migratoryStatus;
+	}
+
+
 	public float getWingSpan() {
 		return wingSpan;
 	}

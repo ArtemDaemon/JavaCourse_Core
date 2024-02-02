@@ -6,6 +6,18 @@ public class Artiodactyl extends Mammal {
 	private static final float MIN_HORN_LENGTH = 0;
 	private static final float MAX_HORN_LENGTH = 20;
 	
+	public Artiodactyl() {
+		super();
+		this.hornLength = 0;
+		this.diet = "Unknown diet";
+	}
+	
+	public Artiodactyl(String name, int age, int numLegs, String habitat, float hornLength, String diet) {
+		super(name, age, numLegs, habitat);
+		this.hornLength = hornLength;
+		this.diet = diet;
+	}
+
 	public float getHornLength() {
 		return hornLength;
 	}

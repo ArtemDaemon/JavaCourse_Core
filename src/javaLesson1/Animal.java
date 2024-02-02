@@ -6,6 +6,14 @@ public class Animal {
 	private static final int MIN_AGE = 0;
 	private static final int MAX_AGE = 200;
 	
+	public Animal() {
+		this.name = "Unknown";
+		this.age = 0;
+	}
+	public Animal(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
 	public String getName() {
 		return name;
 	}

@@ -6,6 +6,18 @@ public class Mammal extends Animal {
 	private static final int MIN_NUM_LEGS = 0;
 	private static final int MAX_NUM_LEGS = 4;
 	
+	public Mammal() {
+		super();
+		this.numLegs = 0;
+		this.habitat = "Unknown habitat";
+	}
+	
+	public Mammal(String name, int age, int numLegs, String habitat) {
+		super(name, age);
+		this.numLegs = numLegs;
+		this.habitat = habitat;
+	}
+
 	public int getNumLegs() {
 		return numLegs;
 	}
