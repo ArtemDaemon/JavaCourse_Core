@@ -1,5 +1,7 @@
 package javaLesson1;
 
+import java.util.Objects;
+
 public class Mammal extends Animal {
 	private int numLegs;
 	private String habitat;
@@ -8,8 +10,8 @@ public class Mammal extends Animal {
 	
 	public Mammal() {
 		super();
-		this.numLegs = 0;
-		this.habitat = "Unknown habitat";
+		numLegs = 0;
+		habitat = "Unknown habitat";
 	}
 	
 	public Mammal(String name, int age, int numLegs, String habitat) {
@@ -31,4 +33,34 @@ public class Mammal extends Animal {
 	public void setHabitat(String habitat) {
 		this.habitat = habitat;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(habitat, numLegs);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Mammal other = (Mammal) obj;
+		return Objects.equals(habitat, other.habitat) && numLegs == other.numLegs;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("Number of legs : ").append(numLegs).append("\n");
+		sb.append("Habitat : ").append(habitat).append("\n");
+		return sb.toString();
+	}
+	
 }

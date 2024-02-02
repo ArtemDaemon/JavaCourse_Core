@@ -1,5 +1,7 @@
 package javaLesson1;
 
+import java.util.Objects;
+
 public class Animal {
 	private String name;
 	private int age;
@@ -7,8 +9,8 @@ public class Animal {
 	private static final int MAX_AGE = 200;
 	
 	public Animal() {
-		this.name = "Unknown";
-		this.age = 0;
+		name = "Unknown";
+		age = 0;
 	}
 	public Animal(String name, int age) {
 		this.name = name;
@@ -27,4 +29,27 @@ public class Animal {
 		if(age < MIN_AGE || age > MAX_AGE) throw new ValueOutOfRangeException(MIN_AGE, MAX_AGE);
 		this.age = age;
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, name);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Animal other = (Animal) obj;
+		return age == other.age && Objects.equals(name, other.name);
+	}
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Name : ").append(name).append("\n");
+		sb.append("Age : ").append(age).append("\n");
+		return sb.toString();
+	}
+	
 }

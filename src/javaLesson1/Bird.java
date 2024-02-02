@@ -1,5 +1,7 @@
 package javaLesson1;
 
+import java.util.Objects;
+
 public class Bird extends Animal {
 	private float wingSpan;
 	private String migratoryStatus;
@@ -8,8 +10,8 @@ public class Bird extends Animal {
 	
 	public Bird() {
 		super();
-		this.wingSpan = 0;
-		this.migratoryStatus = "Unknown migratory status";
+		wingSpan = 0;
+		migratoryStatus = "Unknown migratory status";
 	}
 	
 	public Bird(String name, int age, float wingSpan, String migratoryStatus) {
@@ -33,5 +35,35 @@ public class Bird extends Animal {
 	}
 	public void setMigratoryStatus(String migratoryStatus) {
 		this.migratoryStatus = migratoryStatus;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(migratoryStatus, wingSpan);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bird other = (Bird) obj;
+		return Objects.equals(migratoryStatus, other.migratoryStatus)
+				&& Float.floatToIntBits(wingSpan) == Float.floatToIntBits(other.wingSpan);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("Wing span : ").append(wingSpan).append("\n");
+		sb.append("Migratory status : ").append(migratoryStatus).append("\n");
+		return sb.toString();
 	}
 }
