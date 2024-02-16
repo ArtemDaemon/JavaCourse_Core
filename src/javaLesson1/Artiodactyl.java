@@ -14,8 +14,10 @@ public class Artiodactyl extends Mammal {
 		diet = "Unknown diet";
 	}
 	
-	public Artiodactyl(String name, int age, int numLegs, String habitat, float hornLength, String diet) {
+	public Artiodactyl(String name, int age, int numLegs, String habitat, float hornLength, String diet) 
+			throws ValueOutOfRangeException {
 		super(name, age, numLegs, habitat);
+		validateHornLength(hornLength);
 		this.hornLength = hornLength;
 		this.diet = diet;
 	}
@@ -24,9 +26,7 @@ public class Artiodactyl extends Mammal {
 		return hornLength;
 	}
 	public void setHornLength(float hornLength) throws ValueOutOfRangeException {
-		if(hornLength < MIN_HORN_LENGTH || hornLength > MAX_HORN_LENGTH) {
-			throw new ValueOutOfRangeException(MIN_HORN_LENGTH, MAX_HORN_LENGTH);
-		}
+		validateHornLength(hornLength);
 		this.hornLength = hornLength;
 	}
 	public String getDiet() {
@@ -34,6 +34,12 @@ public class Artiodactyl extends Mammal {
 	}
 	public void setDiet(String diet) {
 		this.diet = diet;
+	}
+	
+	private void validateHornLength(float hornLength) throws ValueOutOfRangeException {
+		if(hornLength < MIN_HORN_LENGTH || hornLength > MAX_HORN_LENGTH) {
+			throw new ValueOutOfRangeException(MIN_HORN_LENGTH, MAX_HORN_LENGTH);
+		}
 	}
 
 	@Override

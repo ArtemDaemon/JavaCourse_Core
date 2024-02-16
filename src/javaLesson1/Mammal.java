@@ -14,8 +14,9 @@ public class Mammal extends Animal {
 		habitat = "Unknown habitat";
 	}
 	
-	public Mammal(String name, int age, int numLegs, String habitat) {
+	public Mammal(String name, int age, int numLegs, String habitat) throws ValueOutOfRangeException {
 		super(name, age);
+		validateNumLegs(numLegs);
 		this.numLegs = numLegs;
 		this.habitat = habitat;
 	}
@@ -24,7 +25,7 @@ public class Mammal extends Animal {
 		return numLegs;
 	}
 	public void setNumLegs(int numLegs) throws ValueOutOfRangeException {
-		if(numLegs < MIN_NUM_LEGS || numLegs > MAX_NUM_LEGS) throw new ValueOutOfRangeException(MIN_NUM_LEGS, MAX_NUM_LEGS);
+		validateNumLegs(numLegs);
 		this.numLegs = numLegs;
 	}
 	public String getHabitat() {
@@ -32,6 +33,10 @@ public class Mammal extends Animal {
 	}
 	public void setHabitat(String habitat) {
 		this.habitat = habitat;
+	}
+	
+	private void validateNumLegs(int numLegs) throws ValueOutOfRangeException {
+		if(numLegs < MIN_NUM_LEGS || numLegs > MAX_NUM_LEGS) throw new ValueOutOfRangeException(MIN_NUM_LEGS, MAX_NUM_LEGS);
 	}
 
 	@Override

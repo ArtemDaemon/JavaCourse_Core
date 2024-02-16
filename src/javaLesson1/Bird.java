@@ -14,8 +14,9 @@ public class Bird extends Animal {
 		migratoryStatus = "Unknown migratory status";
 	}
 	
-	public Bird(String name, int age, float wingSpan, String migratoryStatus) {
+	public Bird(String name, int age, float wingSpan, String migratoryStatus) throws ValueOutOfRangeException {
 		super(name, age);
+		validateWingSpan(wingSpan);
 		this.wingSpan = wingSpan;
 		this.migratoryStatus = migratoryStatus;
 	}
@@ -25,9 +26,7 @@ public class Bird extends Animal {
 		return wingSpan;
 	}
 	public void setWingSpan(float wingSpan) throws ValueOutOfRangeException {
-		if(wingSpan < MIN_WING_SPAN || wingSpan > MAX_WING_SPAN) {
-			throw new ValueOutOfRangeException(MIN_WING_SPAN, MAX_WING_SPAN);
-		}
+		validateWingSpan(wingSpan);
 		this.wingSpan = wingSpan;
 	}
 	public String getMigratoryStatus() {
@@ -35,6 +34,12 @@ public class Bird extends Animal {
 	}
 	public void setMigratoryStatus(String migratoryStatus) {
 		this.migratoryStatus = migratoryStatus;
+	}
+	
+	private void validateWingSpan(float wingSpan) throws ValueOutOfRangeException {
+		if(wingSpan < MIN_WING_SPAN || wingSpan > MAX_WING_SPAN) {
+			throw new ValueOutOfRangeException(MIN_WING_SPAN, MAX_WING_SPAN);
+		}
 	}
 
 	@Override

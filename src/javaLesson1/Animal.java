@@ -12,7 +12,8 @@ public class Animal {
 		name = "Unknown";
 		age = 0;
 	}
-	public Animal(String name, int age) {
+	public Animal(String name, int age) throws ValueOutOfRangeException {
+		validateAge(age);
 		this.name = name;
 		this.age = age;
 	}
@@ -26,9 +27,14 @@ public class Animal {
 		return age;
 	}
 	public void setAge(int age) throws ValueOutOfRangeException {
-		if(age < MIN_AGE || age > MAX_AGE) throw new ValueOutOfRangeException(MIN_AGE, MAX_AGE);
+		validateAge(age);
 		this.age = age;
 	}
+	
+	private void validateAge(int age) throws ValueOutOfRangeException {
+		if(age < MIN_AGE || age > MAX_AGE) throw new ValueOutOfRangeException(MIN_AGE, MAX_AGE);
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(age, name);
