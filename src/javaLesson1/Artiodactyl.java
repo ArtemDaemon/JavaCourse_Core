@@ -66,8 +66,8 @@ public class Artiodactyl extends Mammal {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
-		sb.append("Length of horns : ").append(hornLength).append("\n");
-		sb.append("Diet : ").append(diet).append("\n");
+		sb.append("Length of horns: ").append(hornLength).append("\n");
+		sb.append("Diet: ").append(diet).append("\n");
 		return sb.toString();
 	}
 }

@@ -67,8 +67,8 @@ public class Bird extends Animal {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
-		sb.append("Wing span : ").append(wingSpan).append("\n");
-		sb.append("Migratory status : ").append(migratoryStatus).append("\n");
+		sb.append("Wing span: ").append(wingSpan).append("\n");
+		sb.append("Migratory status: ").append(migratoryStatus).append("\n");
 		return sb.toString();
 	}
 }

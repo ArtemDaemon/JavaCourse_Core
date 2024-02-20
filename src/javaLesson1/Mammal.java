@@ -63,8 +63,8 @@ public class Mammal extends Animal {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
-		sb.append("Number of legs : ").append(numLegs).append("\n");
-		sb.append("Habitat : ").append(habitat).append("\n");
+		sb.append("Number of legs: ").append(numLegs).append("\n");
+		sb.append("Habitat: ").append(habitat).append("\n");
 		return sb.toString();
 	}
 	

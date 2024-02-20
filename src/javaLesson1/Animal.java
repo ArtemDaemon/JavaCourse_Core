@@ -53,8 +53,8 @@ public class Animal {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Name : ").append(name).append("\n");
-		sb.append("Age : ").append(age).append("\n");
+		sb.append("Name: ").append(name).append("\n");
+		sb.append("Age: ").append(age).append("\n");
 		return sb.toString();
 	}
 	
