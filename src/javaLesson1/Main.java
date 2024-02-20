@@ -65,7 +65,7 @@ public class Main {
     		System.out.println("Animal was succesfully created");
         }
         else {
-        	System.out.println("Invalid input");
+        	System.out.println("Invalid input! Creating a default Animal");
         	newAnimal = new Animal();
         }
 
@@ -87,6 +87,7 @@ public class Main {
 		int menuKey = MENU_DEFAULT_KEY;
 		List<Animal> animalList = new ArrayList<>();
 		do {
+			int length = animalList.size();
 			printMenu();
 			
 			menuKey = getIntValue(scanner, "Enter your choice: ");
@@ -97,20 +98,23 @@ public class Main {
 						animalList.add(newAnimal);
 					}
 					catch (ValueOutOfRangeException e) {
-						System.out.println(e);
+						System.out.println(e.getMessage());
 					}
 					break;
 				case MENU_DELETE_KEY:
-					int length = animalList.size();
-					if(length == 0) System.out.println("Animal list is empty");
-					else {
-						int animalIndex = getIntValue(scanner, "Enter an Animal index (start from 0): ");
-						if(animalIndex < 0 || (animalIndex + 1) > length) System.out.println("Invalid index");
-						else {
-							animalList.remove(animalIndex);
-							System.out.println("Element was removed");
-						}
+					if(length == 0) {
+						System.out.println("Animal list is empty");
+						break;
 					}
+					
+					int animalIndex = getIntValue(scanner, "Enter an Animal index (start from 0): ");
+					if(animalIndex < 0 || (animalIndex + 1) > length) {
+						System.out.println("Invalid index");
+						break;
+					}
+					
+					animalList.remove(animalIndex);
+					System.out.println("Element was removed");
 					break;
 				case MENU_VIEW_KEY:
 					System.out.println("//------------------------//");
@@ -118,6 +122,25 @@ public class Main {
 						System.out.println(animal);
 						System.out.println("//------------------------//");
 					}
+					break;
+				case MENU_COMPARE_KEY:
+					if(length == 0) {
+						System.out.println("Animal list is empty");
+						break;
+					}
+					
+					int firstAnimalIndex = getIntValue(scanner, "Enter first Animal index (start from 0): ");
+					int secondAnimalIndex = getIntValue(scanner, "Enter second Animal index (start from 0): ");
+					if(firstAnimalIndex < 0 || (firstAnimalIndex + 1) > length ||
+							secondAnimalIndex < 0 || (secondAnimalIndex + 1) > length) {
+						System.out.println("Invalid index");
+						break;
+					}
+					
+					if(animalList.get(firstAnimalIndex).equals(animalList.get(secondAnimalIndex))) {
+						System.out.println("Animals are the same");
+					}
+					else System.out.println("Animals are different");
 					break;
 			}
 		} while (menuKey != MENU_EXIT_KEY);
