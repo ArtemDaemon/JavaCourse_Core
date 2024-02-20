@@ -142,6 +142,8 @@ public class Main {
 					}
 					else System.out.println("Animals are different");
 					break;
+				case MENU_EXIT_KEY:
+					System.out.println("Goodbye!");
 			}
 		} while (menuKey != MENU_EXIT_KEY);
 		scanner.close();
