@@ -101,6 +101,16 @@ public class Main {
 					}
 					break;
 				case MENU_DELETE_KEY:
+					int length = animalList.size();
+					if(length == 0) System.out.println("Animal list is empty");
+					else {
+						int animalIndex = getIntValue(scanner, "Enter an Animal index (start from 0): ");
+						if(animalIndex < 0 || (animalIndex + 1) > length) System.out.println("Invalid index");
+						else {
+							animalList.remove(animalIndex);
+							System.out.println("Element was removed");
+						}
+					}
 					break;
 				case MENU_VIEW_KEY:
 					System.out.println("//------------------------//");
