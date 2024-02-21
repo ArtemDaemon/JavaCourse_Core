@@ -17,6 +17,12 @@ public class Main {
 	private final static int CREATE_MAMMAL = 2;
 	private final static int CREATE_BIRD = 4;
 	
+	/**
+	 * Method for creating an Animal/Mammal/Artiodactyl/Bird object
+	 * @param scanner - Object for scanning user's input
+	 * @return Object of chosen class
+	 * @throws ValueOutOfRangeException - At least on of the numeric field was out of its possible range
+	 */
 	private static Animal createAnimal(Scanner scanner) throws ValueOutOfRangeException {
 		System.out.println("Enter animal type:");
 		System.out.println("1. Animal");
@@ -26,7 +32,6 @@ public class Main {
         int choice = getIntValue(scanner, "Enter your choice: ");
         Animal newAnimal = null;
         
-        // Is input valid
         if(choice >= CREATE_ANIMAL && choice <= CREATE_BIRD) {
         	System.out.println("Enter Animal details");
     		System.out.print("Name: ");
@@ -72,6 +77,9 @@ public class Main {
         return newAnimal;
 	}
 	
+	/**
+	 * Method for printing menu items
+	 */
 	private static void printMenu() {
 		System.out.println("===== Animal Information System Menu =====");
         System.out.println("1. Add a new Animal");
@@ -150,6 +158,12 @@ public class Main {
 	}
 	
 	// Utility Methods
+	/**
+	 * Method for getting valid integer value
+	 * @param scanner - Object for scanning user's input
+	 * @param message - String message that will appear before input
+	 * @return valid integer value
+	 */
 	private static int getIntValue(Scanner scanner, String message) {
 		int value = 0;
         boolean isValidInput = false;
@@ -167,6 +181,12 @@ public class Main {
         return value;
 	}
 	
+	/**
+	 * Method for getting valid float value
+	 * @param scanner - Object for scanning user's input
+	 * @param message - String message that will appear before input
+	 * @return valid float value
+	 */
 	private static float getFloatValue(Scanner scanner, String message) {
 		float value = 0;
         boolean isValidInput = false;

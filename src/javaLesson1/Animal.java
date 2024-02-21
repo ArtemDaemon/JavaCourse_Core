@@ -17,6 +17,7 @@ public class Animal {
 		this.name = name;
 		this.age = age;
 	}
+	// Getters and setters
 	public String getName() {
 		return name;
 	}
@@ -31,6 +32,11 @@ public class Animal {
 		this.age = age;
 	}
 	
+	/**
+	 * Method for checking whether a numeric value is within the range of valid values
+	 * @param age - Value obtained via constructor or setter
+	 * @throws ValueOutOfRangeException - Numeric field was out of its possible range
+	 */
 	private void validateAge(int age) throws ValueOutOfRangeException {
 		if(age < MIN_AGE || age > MAX_AGE) throw new ValueOutOfRangeException(MIN_AGE, MAX_AGE);
 	}

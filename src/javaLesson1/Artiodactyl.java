@@ -22,6 +22,7 @@ public class Artiodactyl extends Mammal {
 		this.diet = diet;
 	}
 
+	// Getters and setters
 	public float getHornLength() {
 		return hornLength;
 	}
@@ -36,6 +37,11 @@ public class Artiodactyl extends Mammal {
 		this.diet = diet;
 	}
 	
+	/**
+	 * Method for checking whether a numeric value is within the range of valid values
+	 * @param hornLength - Value obtained via constructor or setter
+	 * @throws ValueOutOfRangeException - Numeric field was out of its possible range
+	 */
 	private void validateHornLength(float hornLength) throws ValueOutOfRangeException {
 		if(hornLength < MIN_HORN_LENGTH || hornLength > MAX_HORN_LENGTH) {
 			throw new ValueOutOfRangeException(MIN_HORN_LENGTH, MAX_HORN_LENGTH);

@@ -21,6 +21,7 @@ public class Mammal extends Animal {
 		this.habitat = habitat;
 	}
 
+	// Getters and setters
 	public int getNumLegs() {
 		return numLegs;
 	}
@@ -35,6 +36,11 @@ public class Mammal extends Animal {
 		this.habitat = habitat;
 	}
 	
+	/**
+	 * Method for checking whether a numeric value is within the range of valid values
+	 * @param numLegs - Value obtained via constructor or setter
+	 * @throws ValueOutOfRangeException - Numeric field was out of its possible range
+	 */
 	private void validateNumLegs(int numLegs) throws ValueOutOfRangeException {
 		if(numLegs < MIN_NUM_LEGS || numLegs > MAX_NUM_LEGS) throw new ValueOutOfRangeException(MIN_NUM_LEGS, MAX_NUM_LEGS);
 	}

@@ -21,7 +21,7 @@ public class Bird extends Animal {
 		this.migratoryStatus = migratoryStatus;
 	}
 
-
+	// Getters and setters
 	public float getWingSpan() {
 		return wingSpan;
 	}
@@ -36,6 +36,11 @@ public class Bird extends Animal {
 		this.migratoryStatus = migratoryStatus;
 	}
 	
+	/**
+	 * Method for checking whether a numeric value is within the range of valid values
+	 * @param wingSpan - Value obtained via constructor or setter
+	 * @throws ValueOutOfRangeException - Numeric field was out of its possible range
+	 */
 	private void validateWingSpan(float wingSpan) throws ValueOutOfRangeException {
 		if(wingSpan < MIN_WING_SPAN || wingSpan > MAX_WING_SPAN) {
 			throw new ValueOutOfRangeException(MIN_WING_SPAN, MAX_WING_SPAN);
